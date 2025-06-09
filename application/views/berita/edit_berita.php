@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Update berita</h1>
+            <h1>form berita</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -54,9 +54,9 @@
             <label for="pengirim">pengirim</label>
             <input type="text" class="form-control" id="pengirim" value="<?= $berita['pengirim'];?>" placeholder="pengirim" name="pengirim" required> 
         </div>
-        < class="box-footer" >
+        <div class="box-footer" >
             <button type="submit" class="btn btn-primary">Submit</button>
-          <a href="<?= base_url('berita'); ?>" class="btn btn-secondary">Batal</a>
+            <a href="<?= base_url('berita');?>" class="btn btn-secondary">Batal</a>
         </div>
     </form>
     </div>

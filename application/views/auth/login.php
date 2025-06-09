@@ -8,11 +8,11 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('assets/adminlte/plugins/fontawesome-free/css/all.min.css')?>">
+  <link rel="stylesheet" href="<?= base_url('aset/adminlte/plugins/fontawesome-free/css/all.min.css');?>">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="<?= base_url('assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')?>">
+  <link rel="stylesheet" href="<?= base_url('aset/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css');?>">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('assets/adminlte/dist/css/adminlte.min.css')?>">
+  <link rel="stylesheet" href="<?= base_url('aset/adminlte/dist/css/adminlte.min.css');?>">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -24,9 +24,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="../../index3.html" method="post">
+      <form action="<?php echo base_url(). "index.php/auth/process_login"; ?>" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" id="username" placeholder="username" name="username" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" id="password" placeholder="password" name="password" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -69,11 +69,8 @@
       </div>
       <!-- /.social-auth-links -->
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="<?= base_url('index.php/auth/register');?>" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->
@@ -82,10 +79,10 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="<?= base_url('assets/adminlte/plugins/jquery/jquery.min.js')?>"></script>
+<script src="<?= base_url('aset/adminlte/plugins/jquery/jquery.min.js');?>"></script>
 <!-- Bootstrap 4 -->
-<script src="<?= base_url('assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+<script src="<?= base_url('aset/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 <!-- AdminLTE App -->
-<script src="<?= base_url('assets/adminlte/dist/js/adminlte.min.js')?>"></script>
+<script src="<?= base_url('aset/adminlte/dist/js/adminlte.min.js');?>"></script>
 </body>
 </html>

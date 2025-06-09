@@ -6,12 +6,11 @@ class auth extends CI_Controller {
         parent::__construct();
         $this->load->model('User_model');
         $this->load->library('session');
+        $this->load->library('form_validation');
     }
 
     public function register(){
-        $this->load->view('template/header');
         $this->load->view('auth/register');
-        $this->load->view('template/footer');
     }
     public function process_register(){
         $this->form_validation->set_rules('username','username','required|is_unique[users.username]');
@@ -20,9 +19,7 @@ class auth extends CI_Controller {
         $this->form_validation->set_rules('role','role','required');
     
         if($this->form_validation->run()==false){
-            $this->load->view('template/header');
             $this->load->view('auth/register');
-            $this->load->view('template/footer');
         }else{
             $data = [
                 'username' => $this->input->post('username'),
@@ -37,5 +34,47 @@ class auth extends CI_Controller {
                 redirect('auth/register');
             }
         }
+    }
+    public function login(){
+        $this->load->view('auth/login');
+    }
+    public function process_login(){
+        // $this->form_validation->set_rules('username','username','required');
+        // $this->form_validation->set_rules('password','password','required');
+        // if($this->form_validation->run()==false){
+        //     $this->load->view('auth/login');
+        // }else{
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+                $user = $this->User_model->check_user($username, $password);
+            if($user){
+                $this->session->set_userdata([
+                        'user_id' => $user->id,
+                        'username' => $user->username,
+                        'role' => $user->role,
+                        'logged_in' => true
+            ]);
+                    $this->redirect_by_role($user->role);
+                }else{
+                    $this->session->set_flashdata('error','username atau password salah');
+                    redirect('auth/login');
+                }
+        }
+        private function redirect_by_role($role){
+            switch ($role) {
+                case 'admin';
+                    redirect('dashboard');
+                    break;
+                case 'user';
+                    redirect('dashboard_user');
+                    break;
+                default:
+                    redirect('auth/login');
+            }
+        }
+    
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('auth/login');
     }
 }

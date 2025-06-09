@@ -42,12 +42,12 @@
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($kategori_berita as $c) :?>
+          <?php foreach ($kategori_berita as $k) :?>
             <tr>
-              <td><?= $c['kategori'];?></td>
+              <td><?= $k->kategori;?></td>
               <td>
-                <a href="<?= base_url('index.php/kategori/edit/'. $c['idkategori']);?>" class="btn btn-sm btn-info">Edit</a>
-                <a href="<?= base_url('index.php/kategori/hapus/' . $c['idkategori']);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapusnya?')">Hapus</a>
+                <a href="<?= base_url('index.php/kategori/edit/'. $k->idberita);?>" class="btn btn-sm btn-info">Edit</a>
+                <a href="<?= base_url('index.php/kategori/hapus/' . $k->idberita);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapusnya?')">Hapus</a>
               </td>
           </tr>
           <?php endforeach;?>

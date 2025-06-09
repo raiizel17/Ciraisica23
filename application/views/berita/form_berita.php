@@ -39,21 +39,30 @@
             <input type="text" class="form-control" id="judul" placeholder="judul" name="judul" required>
         </div>
         <div class="form-group">
-            <label for="kategori">Kategori</label>
-            <input type="text" class="form-control" id="kategori" placeholder="kategori" name="kategori" required> 
+            <label for=" judul">kategori</label>
+            <select class="form-control" id="kategori" name="kategori" required>
+                <option value="">Pilih Kategori</option>
+                <?php if (!empty($kategori_berita));?>
+                <?php foreach ($kategori_berita as $k)  {?>
+                <option value="<?php echo $k->idberita;?>"><?php echo $k->kategori;?></option>
+                <?php }?>
+            </select>
         </div>
         <div class="form-group">
-            <label for="headline">Headline</label>
-            <input type="text" class="form-control" id="headline" placeholder="headline" name="headline" required> 
+            <label for=" judul">headline</label>
+            <input type="text" class="form-control" id="headline" placeholder="headline" name="headline" required>
         </div>
         <div class="form-group">
-            <label for="isi_berita">Isi Berita</label>
-            <textarea class="form-control summernote" id="isi_berita" name="isi_berita" placeholder="isi berita" required></textarea>
+            <label for="isi">Isi Berita</label>
+            <textarea class="form-control summernote" id="isi_berita" name="isi_berita" placeholder="isi_berita" required></textarea>
         </div>
-        
         <div class="form-group">
-            <label for="pengirim">pengirim</label>
+            <label for="pengirim">Pengirim</label>
             <input type="text" class="form-control" id="pengirim" placeholder="pengirim" name="pengirim" required> 
+        </div>
+        <div class="form-group">
+            <label for="tgl_publish">Tanggal Publish</label>
+            <input type="date" class="form-control" id="tgl_publish" placeholder="tgl_publish" name="tgl_publish" required> 
         </div>
         <div class="box-footer" >
             <button type="submit" class="btn btn-primary">Submit</button>

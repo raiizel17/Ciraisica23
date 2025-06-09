@@ -9,15 +9,15 @@ class kategori extends CI_Controller{
     }
     public function index(){
         $data['kategori_berita']=$this->Kategori_Model->get_all_kategori();
-        $this->load->view('template/header');
+        $this->load->view('Tamplates/header');
         $this->load->view('kategori/index' ,$data);
-        $this->load->view('template/footer');
+        $this->load->view('Tamplates/footer');
     }
     public function tambah(){
-        $data['kategori_berita']=$this->Kategori_Model->get_all_kategori();
-        $this->load->view('template/header');
-        $this->load->view('kategori/form_kategori',$data);
-        $this->load->view('template/footer');
+        $data['berita']=$this->Kategori_Model->get_all_kategori();
+        $this->load->view('Tamplates/header');
+        $this->load->view('kategori/form_berita',$data);
+        $this->load->view('Tamplates/footer');
     }
     public function insert(){
         $kategori = $this->input->post('kategori');

@@ -1,11 +1,11 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Daftar Berita</h1>
+            <h1>berita</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -34,39 +34,39 @@
   </div>
   <div class="card-body">
     <a href="<?= base_url('index.php/berita/tambah');?>" class="btn btn-primary mb-3">Tambah Berita</a>
-    <?php if (!empty($berita)): ?>
-      <table class="table table-boardered table-striped">
+    <?php if (!empty($berita)) : ?>
+      <table id="datatable" class="table table-bordered table-striped">
         <thead>
-        <tr>
-          <th>Judul</th>
-          <th>Kategori</th>
-          <th>Headline</th>
-          <th>Isi Berita</th>
-          <th>Pengirim<th>
-          <th>Aksi<th>
-        </tr>
-    </thead>
-    <tbody>
-      <?php foreach($berita as $b): ?>
-        <tr>
-          <td><?= $b['judul']; ?></td>
-          <td><?= $b['kategori']; ?></td>
-          <td><?= $b['headline']; ?></td>
-          <td><?= $b['isi_berita']; ?></td>
-          <td><?= $b['pengirim']; ?></td>
-          <td>
-            <a href="<?= base_url('index.php/berita/edit/'. $b['idberita']); ?>" class="btn btn-sm btn-info">Edit</a>
-            <a href="<?= base_url('index.php/berita/hapus/'. $b['idberita']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin hapus?')">Hapus</a>
-          </td>
-        </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
-    <?php else: ?>
-      <p> Tidak ada berita yang tersedia</p>
-      <?php endif; ?>
+          <tr>
+            <th>Judul</th>
+            <th>Kategori</th>
+            <th>Headline</th>
+            <th>Isi Berita</th>
+            <th>Pengirim</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($berita as $b) :?>
+            <tr>
+              <td><?= $b['judul'];?></td>
+              <td><?= $b['kategori'];?></td>
+              <td><?= $b['headline'];?></td>
+              <td><?= $b['isi_berita'];?>...</td>
+              <td><?= $b['pengirim'];?></td>
+              <td>
+                <a href="<?= base_url('index.php/berita/edit/'. $b['idberita']);?>" class="btn btn-sm btn-info">Edit</a>
+                <a href="<?= base_url('index.php/berita/hapus/' . $b['idberita']);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapusnya?')">Hapus</a>
+              </td>
+          </tr>
+          <?php endforeach;?>
+        </tbody>
+      </table>
+      <?php else :?>
+        <div class="alert alert-warning">Tidak ada berita yang tersedia</div>
+      <?php endif;?>
   </div>
-  <!-- /.card-body -->  
+  <!-- /.card-body -->
   <div class="card-footer">
     Footer
   </div>
